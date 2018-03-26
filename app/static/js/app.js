@@ -37,8 +37,38 @@ Vue.component('app-footer', {
             year: (new Date).getFullYear()
         }
     }
-})
+});
 
+const newsList = Vue.component('news-list', {
+    template: ` <div class='news'>
+                    <h2>News</h2>
+                    <div id='thing'></div>
+                    <div class='containers'>
+                    <div v-for='article in articles' class='news__item grip-item'>
+                    <h5>{{ article.title }}</h5>
+                    <img class='news' v-bind:src='article.urlToImage' height="300" width="300"/>
+                    <p>{{article.description}}</p>
+                    </div>
+                    </div> ` ,
+    created: function() {
+        let self = this;
+        fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=2c3dcd8ecdfb4bb2a42cf8366a32beba')
+        .then(function(response) {
+            return response.json(); 
+          }) 
+          .then(function(data) { 
+            console.log(data); 
+            self.articles = data.articles;
+          }); 
+    },
+    data: function() {
+        return {
+            articles: []
+            
+        }
+        
+    } 
+});
 
 let app = new Vue({
     el: '#app',
@@ -46,4 +76,5 @@ let app = new Vue({
         welcome: 'Hello World! Welcome to VueJS'
     }
 });
+
 
