@@ -8,22 +8,35 @@ footer  {
 .containers
 {
  display: grid;
-    grid-template-columns: auto auto auto auto;
     grid-gap: 10px;
     padding: 50px;
-    margin-left: -27%;
+    margin-top: 40px;
+    overflow: auto;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 
 .news__item.grip-item {
  display: block; 
     grid-gap: 10px;
-    padding: 50px;
+    padding-top: 30px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-top-color: #75d372;
+    border-top-color: #34D161;
     border-top-style: solid;
     word-wrap: break-word;
-    width: 400px;
+    width: 344px;
     margin-top: 10px;
-    
+    padding-left: 20px;
+    text-align:center;
+    padding-right: 20px;
+}
+h5
+{
+    font-weight: bold;
+    text-align: center
+}
+
+p {
+    text-align: center;
+    padding: 10px;
 }
